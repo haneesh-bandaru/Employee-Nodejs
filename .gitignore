@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+bower_components/
+
+# Build outputs
+dist/
+tmp/
+out-tsc/
+built/
+coverage/
+
+# Angular specific files
+.angular/
+
+# Temporary files
+*.tmp
+*.log
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Misc
+*.orig
+*.bak
+*.old
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
