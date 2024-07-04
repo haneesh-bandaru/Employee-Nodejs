@@ -29,7 +29,7 @@ async function insertEmp(req, res) {
     pincode,
     salary,
 
-    roleId
+    roleId,
   } = req.body;
   let addedBy = req.username;
   const username = await userNameGenerator(firstName, lastName);
@@ -42,4 +42,12 @@ async function insertEmp(req, res) {
   res.status(200).send("inserted");
 }
 
-module.exports = { getEmp, insertEmp };
+// Delete Employee
+async function deleteEmp(req, res) {
+  const empId = req.params.id;
+  const sql = `delete from Employee where emp_id = ${empId}`;
+  const [result, fields] = await connection.query(sql);
+  res.status(200).json({ message: "deleted" });
+}
+
+module.exports = { getEmp, insertEmp, deleteEmp };
