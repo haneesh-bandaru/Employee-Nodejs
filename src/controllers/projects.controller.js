@@ -6,9 +6,8 @@ const getProjects = async (req, res) => {
   const sql = "SELECT * FROM Project";
   try {
     const [results, fields] = await connection.query({
-      sql,
+      sql
     });
-    console.log(results)
     res.json({ data: results });
   } catch (error) {
     console.log(error);

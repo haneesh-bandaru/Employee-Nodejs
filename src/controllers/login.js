@@ -9,6 +9,7 @@ router.post("/login", async (req, res) => {
     const { username, password } = req.body;
     const sql = `select count(*) as count,role_id from Employee where username = '${username}' and emp_pass = '${password}'`;
     const [rows, field] = await connection.query(sql);
+    console.log(rows)
     //throw 401
     if (rows[0].count != 1) {
       res.status(500).send("User Not found");
@@ -20,7 +21,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ userId: username, role: roleRow[0].role_name }, "1234", {
       expiresIn: "1h"
     });
-    res.cookie('token',token);
+    res.cookie("token", token);
     res.status(200).json({ token });
   } catch (error) {
     console.log(error);

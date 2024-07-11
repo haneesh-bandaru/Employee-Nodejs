@@ -14,6 +14,7 @@ const verifyToken = require("./src/middlewares/authMiddleware");
 app.use(express.json());
 app.use(cookie());
 app.use(cors());
+
 app.use("/protected", verifyToken);
 app.use("/protected/employee", empRoutes);
 app.use("/protected/project", proRoutes);
